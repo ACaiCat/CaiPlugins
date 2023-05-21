@@ -29,9 +29,8 @@ namespace SwitchCommands
 
         public override void Initialize()
         {
-
-            database = DB.LoadAll();
             TableManager.CreateTables();
+            database = DB.LoadAll();
             PluginCommands.RegisterCommands();
             ServerApi.Hooks.NetGetData.Register(this, GetData);
 

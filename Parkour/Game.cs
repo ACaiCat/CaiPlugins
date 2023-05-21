@@ -1,18 +1,9 @@
-﻿using MySqlX.XDevAPI.Common;
-using System.Text.Json;
-using Newtonsoft.Json.Linq;
-using System.Text.Json.Nodes;
-using System.Threading.Channels;
-using TerrariaApi.Server;
+﻿using System.Text.Json;
+using Microsoft.Xna.Framework;
+using SSCManager;
+using Terraria.DataStructures;
 using TShockAPI;
 using TShockAPI.DB;
-using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
-using Org.BouncyCastle.Math.Field;
-using System.Net;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using IL.Terraria;
 
 namespace Parkour;
 
@@ -22,6 +13,8 @@ public class ParkourPlay
     public TSPlayer player { get; set; }
     public ParkourInfo parkour { get; set; }
 
+    public ParkourInfo.Point16 StartPoint { get; set; }
+
     public DateTime startTime { get; set; }
 
     public DateTime endTime { get; set; }
@@ -29,11 +22,20 @@ public class ParkourPlay
     public Vector2 SpawnPoint;
 
     public int DeathTimes = 0;
+
+    public DateTime lastDeathTime = DateTime.MinValue;
+    public bool CanSetSpawn
+    {
+        get
+        {
+            return DateTime.Now - lastDeathTime >= TimeSpan.FromSeconds(5);
+        }
+    }
     public TimeSpan currentTime
     {
         get
         {
-            return DateTime.UtcNow - startTime;
+            return DateTime.Now - startTime;
         }
     }
     public TimeSpan totalTime
@@ -63,20 +65,22 @@ public class ParkourPlay
     public void Start()
     {
         IsPlaying = true;
-        startTime = DateTime.UtcNow;
+        startTime = DateTime.Now;
         SpawnPoint = player.TPlayer.position;
+        SSCSaver.RestoryBag(player, parkour.BagID, false);
     }
 
     public void End()
     {
         IsPlaying = false;
-        endTime = DateTime.UtcNow;
+        endTime = DateTime.Now;
     }
 
 
     public ParkourPlay(TSPlayer player, ParkourInfo parkour)
     {
         this.player = player;
+        this.StartPoint = new(player.TileX, player.TileY);
         this.parkour = parkour;
      
         Start();
@@ -94,14 +98,29 @@ public class ParkourInfo
             X = x;
             Y = y;
         }
+
+        public override string ToString()
+        {
+            return $"X:{X},Y:{Y}";
+        }
+
     }
     public string Name { get; set; } = null!;
+    public Region RegionDate { get; set; }
     public Region Region
     {
         get
         {
-            return TShock.Regions.GetRegionByName(RegionName);
+            if (RegionDate == null)
+            {
+                return TShock.Regions.GetRegionByName(RegionName);
+            }
+            else
+            {
+                return RegionDate;
+            }
         }
+      
     }
 
     public string RegionName { get; set; } = null!;
@@ -113,7 +132,7 @@ public class ParkourInfo
 
     public bool exists = false;
 
-    public Point16 SignPos { get; set; }
+    public Point16 SignPos { get; set; } = new(-1, -1);
 
     public SelectPoint select = new();
 
@@ -133,7 +152,7 @@ public class ParkourInfo
 
     public string GetRecord(int index)
     {
-        return Math.Round(Records[index].TotalSeconds).ToString();
+        return Math.Round(Records[index].TotalSeconds,2).ToString();
     }
     public ParkourInfo()
     {

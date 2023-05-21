@@ -3,7 +3,7 @@ using System.Threading.Channels;
 using TerrariaApi.Server;
 using TShockAPI;
 
-namespace Chireiden.TShock.Omni;
+namespace Ping;
 
 public class PingClass
 {
@@ -31,7 +31,7 @@ public class PingClass
             SingleReader = true,
             SingleWriter = true
         });
-        player.SetData("chireiden.data.pingchannel", channel);
+        player.SetData("Ping.data.ping", channel);
         Terraria.NetMessage.TrySendData((int)PacketTypes.RemoveItemOwner, -1, -1, null, inv);
         while (!token.IsCancellationRequested)
         {
@@ -42,7 +42,7 @@ public class PingClass
                 break;
             }
         }
-        player.SetData<Channel<int>?>("chireiden.data.pingchannel", null);
+        player.SetData<Channel<int>?>("Ping.data.ping", null);
         return result;
     }
 
@@ -60,7 +60,7 @@ public class PingClass
         }
 
         var whoami = args.Instance.whoAmI;
-        var pingresponse = TShockAPI.TShock.Players[whoami]?.GetData<Channel<int>?>("chireiden.data.pingchannel");
+        var pingresponse = TShock.Players[whoami]?.GetData<Channel<int>?>("Ping.data.ping");
         if (pingresponse == null)
         {
             return;
@@ -78,21 +78,21 @@ public class PingClass
             var result = await Ping(player);
             if (result.TotalMilliseconds >= 200)
             {
-                return ($"[c/FF0000:{result.TotalMilliseconds:F1}ms]");
+                return $"[c/FF0000:{result.TotalMilliseconds:F1}ms]";
 
             }
-            else if (result.TotalMilliseconds >80 && result.TotalMilliseconds <200)
+            else if (result.TotalMilliseconds > 80 && result.TotalMilliseconds < 200)
             {
-                return ($"[c/FFA500:{result.TotalMilliseconds:F1}ms]");
+                return $"[c/FFA500:{result.TotalMilliseconds:F1}ms]";
             }
             else
             {
-                return ($"[c/00FF00:{result.TotalMilliseconds:F1}ms]");
+                return $"[c/00FF00:{result.TotalMilliseconds:F1}ms]";
             }
         }
         catch (Exception e)
         {
-            TShockAPI.TShock.Log.ConsoleError(e.ToString());
+            TShock.Log.ConsoleError(e.ToString());
             return "[c/FF0000:不可用]";
 
         }

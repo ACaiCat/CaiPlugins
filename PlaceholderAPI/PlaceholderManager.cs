@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TShockAPI;
+﻿using TShockAPI;
 
 namespace PlaceholderAPI
 {
@@ -11,17 +6,17 @@ namespace PlaceholderAPI
     {
         private Dictionary<string, string> placeholders;
         private Dictionary<char, string> colors;
-        public PlaceholderManager() 
+        public PlaceholderManager()
         {
             placeholders = new Dictionary<string, string>();
             colors = new Dictionary<char, string>();
         }
-        public string GetText(string text,TSPlayer player) 
+        public string GetText(string text, TSPlayer player)
         {
-            Hooks.OnGetText(placeholders,player);
+            Hooks.OnGetText(placeholders, player);
             foreach (var key in placeholders.Keys)
             {
-                text=text.Replace(key,placeholders[key]);
+                text = text.Replace(key, placeholders[key]);
             }
             return Colorful(text);
         }
@@ -29,8 +24,8 @@ namespace PlaceholderAPI
         {
             string final = "";
             var flag = text.StartsWith("&");
-            var texts = text.Split(new char[]{ '&'}, StringSplitOptions.RemoveEmptyEntries);
-            
+            var texts = text.Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
+
 
 
             for (int i = 0; i < texts.Length; i++)
@@ -38,45 +33,45 @@ namespace PlaceholderAPI
                 if (colors.ContainsKey(texts[i][0]))
                 {
                     char letter = texts[i][0];
-                    bool flag2 =  texts[i].Contains("[i:") || 
-                                 texts[i].Contains("[c/") || 
+                    bool flag2 = texts[i].Contains("[i:") ||
+                                 texts[i].Contains("[c/") ||
                                  texts[i].Contains("[g:") ||
                                  texts[i].Contains("[i/");
-                    if (flag&&i==0)
+                    if (flag && i == 0)
                     {
                         texts[i] = texts[i].Remove(0, 1);
                         texts[i] = texts[i].Color(colors[letter]);
                     }
-                    
-                    if (!flag2) 
+
+                    if (!flag2)
                     {
                         texts[i] = texts[i].Remove(0, 1);
                         texts[i] = texts[i].Color(colors[letter]);
                     }
-                    
+
                 }
                 final += texts[i];
             }
             if (string.IsNullOrEmpty(final)) final = text;
             return final;
         }
-        public void Register(string key) 
+        public void Register(string key)
         {
             if (!placeholders.ContainsKey(key))
             {
-                placeholders.Add(key,"");
+                placeholders.Add(key, "");
             }
             else
             {
                 Console.WriteLine($"[PlaceholderAPI] 占位符 {key} 注册冲突");
             }
         }
-        public void Deregister(string key) 
+        public void Deregister(string key)
         {
             if (placeholders.ContainsKey(key))
             {
                 placeholders.Remove(key);
-            } 
+            }
         }
         public void InitializeColors()
         {

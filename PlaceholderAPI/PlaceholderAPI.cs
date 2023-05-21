@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using TerrariaApi.Server;
-using TShockAPI;
 
 namespace PlaceholderAPI
 {
-    [ApiVersion(2,1)]
+    [ApiVersion(2, 1)]
     public class PlaceholderAPI : TerrariaPlugin
     {
-        public PlaceholderAPI(Terraria.Main game) : base(game){ Order = -1; }
+        public PlaceholderAPI(Terraria.Main game) : base(game) { Order = -1; }
         public override string Name => "PlaceholderAPI";
         public override Version Version => Assembly.GetExecutingAssembly().GetName().Version;
         public override string Author => "豆沙";
@@ -49,12 +43,13 @@ namespace PlaceholderAPI
             }
             base.Dispose(disposing);
         }
-        private void Register() 
+        private void Register()
         {
             placeholderManager.Register("{player}");
             placeholderManager.Register("{group}");
             placeholderManager.Register("{helditem}");
-            placeholderManager.Register("{playerDead}");
+            placeholderManager.Register("{player
+                }");
             placeholderManager.Register("{playerMaxHP}");
             placeholderManager.Register("{playerMaxMana}");
             placeholderManager.Register("{playerHP}");

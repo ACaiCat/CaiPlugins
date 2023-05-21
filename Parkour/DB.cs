@@ -25,14 +25,14 @@ namespace Parkour
         public static List<SqlTable> sqlTables = new List<SqlTable>
         {
             new SqlTable("Parkours",
-                                     new SqlColumn("Name", MySqlDbType.String) { Primary = true },
-                                     new SqlColumn("Region", MySqlDbType.String),
-                                     new SqlColumn("Record", MySqlDbType.String),
+                                     new SqlColumn("Name", MySqlDbType.String) { Primary = true ,Length = 30  },
+                                     new SqlColumn("Region", MySqlDbType.String) { Length = 30 },
+                                     new SqlColumn("Record", MySqlDbType.LongText),
                                      new SqlColumn("BagID", MySqlDbType.Int32),
                                      new SqlColumn("Award", MySqlDbType.Int32),
                                      new SqlColumn("AwardCD", MySqlDbType.Int32),
-                                     new SqlColumn("AwardCDRecord", MySqlDbType.String),
-                                     new SqlColumn("SignPos", MySqlDbType.String)
+                                     new SqlColumn("AwardCDRecord", MySqlDbType.LongText),
+                                     new SqlColumn("SignPos", MySqlDbType.String){ Length = 30 }
     )};
 
         public static void CreateTables()

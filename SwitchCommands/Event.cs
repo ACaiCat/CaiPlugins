@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TShockAPI;
+﻿using TShockAPI;
 
 namespace SwitchCommands
 {
@@ -18,7 +13,7 @@ namespace SwitchCommands
             public int Y { get; set; }
 
             public TSPlayer TSPlayer { get; set; }
-            public HitSwitchEventArgs(int x, int y,TSPlayer player)
+            public HitSwitchEventArgs(int x, int y, TSPlayer player)
             {
                 X = x;
                 Y = y;
@@ -26,9 +21,9 @@ namespace SwitchCommands
             }
         }
         //定义一个方法来触发事件
-        public static void OnHitSwitch(int x, int y,TSPlayer player)
+        public static void OnHitSwitch(int x, int y, TSPlayer player)
         {
-            HitSwitch?.Invoke(null, new HitSwitchEventArgs(x, y,player));
+            HitSwitch?.Invoke(null, new HitSwitchEventArgs(x, y, player));
         }
 
     }

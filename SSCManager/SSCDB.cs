@@ -60,11 +60,16 @@ namespace SSCManager
     }
     public static class SSCDB
     {
-        public static void RestoryBag(this TSPlayer plr, int sscid)
+        public static void RestoryBag(this TSPlayer plr, int sscid,bool savebag = true)
         {
-            SSCSaver.playerDatas[plr.Index] = plr.PlayerData;
+            if (savebag)
+            {
+                SSCSaver.playerDatas[plr.Index] = plr.PlayerData;
+
+            }
             plr.PlayerData = SSCDB.GetPlayerData(sscid);
             plr.PlayerData.RestoreCharacter(plr);
+            plr.Heal(plr.PlayerData.maxHealth);
         }
 
         public static void RestoryBackBag(this TSPlayer plr)

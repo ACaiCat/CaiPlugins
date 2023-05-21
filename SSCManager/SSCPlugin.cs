@@ -50,14 +50,23 @@ namespace SSCManager
         //}
 
         public static PlayerData[] playerDatas = new PlayerData[255];
-        public static void RestoryBag(TSPlayer plr,int sscid)
+        public static void RestoryBag(TSPlayer plr,int sscid,bool savessc = true)
         {
-            playerDatas[plr.Index] = plr.PlayerData;
+            if (savessc)
+            {
+                playerDatas[plr.Index] = plr.PlayerData;
+            }
             plr.PlayerData = SSCDB.GetPlayerData(sscid);
             plr.PlayerData.RestoreCharacter(plr);
+            plr.Heal(plr.PlayerData.maxHealth);
         }
 
-     public static bool ExistBag(int id)
+        public static PlayerData GetDate(int sscid)
+        {
+            return SSCDB.GetPlayerData(sscid);
+        }
+
+        public static bool ExistBag(int id)
         {
             return SSCDB.GetPlayerData(id).exists;
         }
@@ -135,6 +144,7 @@ namespace SSCManager
                     }
                     args.Player.PlayerData = SSCDB.GetPlayerData(sscid);
                     args.Player.PlayerData.RestoreCharacter(args.Player);
+                    args.Player.Heal(args.Player.PlayerData.maxHealth);
                     args.Player.SendSuccessMessage("背包已还原!");
                     break;
                 default:

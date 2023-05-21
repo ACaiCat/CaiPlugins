@@ -23,7 +23,6 @@ namespace SwitchCommands
         private static void SwitchReload(CommandArgs args)
         {
             SwitchCommands.database = DB.LoadAll();
-            Console.WriteLine(string.Join("\n",SwitchCommands.database.switchCommandList.Keys));
             args.Player.SendSuccessMessage("[开关插件]开关重载成功！！！");
         }
 
@@ -56,9 +55,25 @@ namespace SwitchCommands
                         case "add":
                         case "添加":
                         case "tj":
-                            var command = "/" + string.Join(" ", args.Parameters.Skip(1));
+                            var command = "";
+                            if (args.Parameters[1].StartsWith(TShock.Config.Settings.CommandSpecifier))
+                            {
+                                command = string.Join(" ", args.Parameters.Skip(1));
+
+                            }
+                            else
+                            {
+                                command = TShock.Config.Settings.CommandSpecifier + string.Join(" ", args.Parameters.Skip(1));
+
+                            }
                             cmdInfo.commandList.Add(command);
                             player.SendSuccessMessage("成功添加: {0}".SFormat(command));
+                            break;
+                        case "clear":
+                        case "清空命令":
+                        case "qkml":
+                            cmdInfo.commandList.Clear();
+                            player.SendSuccessMessage("命令列表已清空!");
                             break;
 
                         case "list":

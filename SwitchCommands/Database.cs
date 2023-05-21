@@ -1,6 +1,4 @@
-﻿using System.Data;
-using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Common;
+﻿using MySql.Data.MySqlClient;
 using TShockAPI;
 using TShockAPI.DB;
 
@@ -11,16 +9,16 @@ namespace SwitchCommands
         public Dictionary<string, CommandInfo> switchCommandList = new Dictionary<string, CommandInfo>();
 
     }
-        public class TableManager
+    public class TableManager
     {
         public static List<SqlTable> sqlTables = new List<SqlTable>
         {
             new SqlTable("SwitchCommands",
-                                     new SqlColumn("Point", MySqlDbType.String){ Primary = true },
-                                     new SqlColumn("Commands", MySqlDbType.String),
-                                     new SqlColumn("ignorePerms", MySqlDbType.Int32),
-                                     new SqlColumn("cooldown", MySqlDbType.Int32)
-                                     
+                                     new SqlColumn("Point", MySqlDbType.String){ Primary = true ,Length = 32  },
+                                     new SqlColumn("Commands", MySqlDbType.String){ Length = 100},
+                                     new SqlColumn("ignorePerms", MySqlDbType.Int32){ Length = 10 },
+                                     new SqlColumn("cooldown", MySqlDbType.Int32){ Length = 10 }
+
     )};
 
         public static void CreateTables()
@@ -42,7 +40,7 @@ namespace SwitchCommands
             var result = new Database();
             try
             {
-                
+
                 using (var reader = TShock.DB.QueryReader("SELECT * FROM SwitchCommands"))
                 {
                     while (reader.Read())
@@ -71,7 +69,7 @@ namespace SwitchCommands
         {
             foreach (var i in database.switchCommandList)
             {
-                DB.InsertPoint(i.Value,i.Value.point);
+                DB.InsertPoint(i.Value, i.Value.point);
             }
         }
 
@@ -88,7 +86,7 @@ namespace SwitchCommands
                             ignorePerms = reader.Get<int>("ignorePerms") == 0 ? false : true,
                             cooldown = reader.Get<int>("cooldown"),
                             commandList = reader.Get<string>("Commands").Split(',').ToList(),
-                            point  = new SwitchPos(reader.Get<string>("Point")),
+                            point = new SwitchPos(reader.Get<string>("Point")),
 
                         };
                     }
@@ -123,13 +121,13 @@ namespace SwitchCommands
         public static bool InsertPoint(CommandInfo info, SwitchPos pos)
         {
 
-            if (GetPoint(info.point)==null)
+            if (GetPoint(info.point) == null)
             {
                 try
                 {
                     TShock.DB.Query(
                         "INSERT INTO SwitchCommands (Point, Commands, ignorePerms, cooldown) VALUES (@0, @1, @2, @3);",
-                        info.point.ToSqlString(),string.Join(',',info.commandList),info.ignorePerms?1:0,info.cooldown
+                        info.point.ToSqlString(), string.Join(',', info.commandList), info.ignorePerms ? 1 : 0, info.cooldown
                         );
                     return true;
                 }
