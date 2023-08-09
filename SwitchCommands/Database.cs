@@ -9,32 +9,20 @@ namespace SwitchCommands
         public Dictionary<string, CommandInfo> switchCommandList = new Dictionary<string, CommandInfo>();
 
     }
-    public class TableManager
-    {
-        public static List<SqlTable> sqlTables = new List<SqlTable>
-        {
-            new SqlTable("SwitchCommands",
-                                     new SqlColumn("Point", MySqlDbType.String){ Primary = true ,Length = 32  },
-                                     new SqlColumn("Commands", MySqlDbType.String){ Length = 100},
-                                     new SqlColumn("ignorePerms", MySqlDbType.Int32){ Length = 10 },
-                                     new SqlColumn("cooldown", MySqlDbType.Int32){ Length = 10 }
-
-    )};
-
-        public static void CreateTables()
-        {
-            SqlTableCreator sqlTableCreator = new SqlTableCreator(TShock.DB, TShock.DB.GetSqlType() != SqlType.Sqlite ? new MysqlQueryCreator() : new SqliteQueryCreator());
-            foreach (SqlTable table in sqlTables)
-            {
-                sqlTableCreator.EnsureTableStructure(table);
-            }
-        }
 
 
-    }
     public static class DB
     {
+        public static void Connect() //务必在Initialize()里或者其他地方调用
+        {
+            SqlTableCreator sqlTableCreator = new SqlTableCreator(TShock.DB, TShock.DB.GetSqlType() != SqlType.Sqlite ? new MysqlQueryCreator() : new SqliteQueryCreator());
 
+            sqlTableCreator.EnsureTableStructure(new SqlTable("SwitchCommands",
+                                     new SqlColumn("Point", MySqlDbType.String) { Primary = true, Length = 32 },
+                                     new SqlColumn("Commands", MySqlDbType.String) { Length = 100 },
+                                     new SqlColumn("ignorePerms", MySqlDbType.Int32) { Length = 10 },
+                                     new SqlColumn("cooldown", MySqlDbType.Int32) { Length = 10 }));
+        }
         public static Database LoadAll()
         {
             var result = new Database();

@@ -14,6 +14,7 @@
     <ProjectReference Include="..\..\CaiAPI\StatusTxtMgr\StatusTxtMgr.csproj" />
     <ProjectReference Include="..\..\库存测试\XSB.csproj" />
     <ProjectReference Include="..\SSCManager\SSCManager.csproj" />
+    <ProjectReference Include="..\TrProtocol\TrProtocol\TrProtocol.csproj" />
   </ItemGroup>
 
 </Project>

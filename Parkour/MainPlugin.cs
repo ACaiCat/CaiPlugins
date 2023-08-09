@@ -1,13 +1,18 @@
 ﻿using System.Data;
 using System.Reflection;
 using System.Text;
+using OTAPI;
 using SSCManager;
 using StatusTxtMgr;
 using Terraria;
+using Terraria.GameContent.Events;
 using TerrariaApi.Server;
 using TShockAPI;
 using TShockAPI.DB;
 using TShockAPI.Hooks;
+using TrProtocol;
+using TrProtocol.Packets;
+using Terraria.Localization;
 
 namespace Parkour
 {
@@ -35,14 +40,14 @@ namespace Parkour
             ServerApi.Hooks.GameUpdate.Register(this, OnUpdate);
             GeneralHooks.ReloadEvent += OnReload;
             //玩家进入区域后发送消息
-
+            On.Terraria.NetMessage.SendData += NetMessage_SendData;
             RegionHooks.RegionEntered += RegionHooks_RegionEntered;
             RegionHooks.RegionLeft += RegionHooks_RegionLeft;
             //GetDataHandlers.PlayerSlot.Register(OnPlayerSlot);
             ServerApi.Hooks.WorldSave.Register(this, OnSave);
-            GetDataHandlers.PlayerSpawn.Register(OnPlayerSpawn);
             ServerApi.Hooks.ServerLeave.Register(this, OnLeave);
             GetDataHandlers.KillMe.Register(OnKillMe);
+            GetDataHandlers.PlayerSpawn.Register(OnPlayerSpawn);
             //有掉落物品事件
             // GetDataHandlers.ItemDrop.Register(OnItemDrop);
             //检测玩家敲击标牌
@@ -244,6 +249,35 @@ namespace Parkour
 
         }
 
+        private void OnPlayerSpawn(object sender, GetDataHandlers.SpawnEventArgs e)
+        {
+            var p = parkourPlays.GetParkourByName(e.Player.Name);
+            if (p != null)
+            {
+                e.Handled=true;
+            }
+        }
+
+        private void NetMessage_SendData(On.Terraria.NetMessage.orig_SendData orig, int msgType, int remoteClient, int ignoreClient, NetworkText text, int number, float number2, float number3, float number4, int number5, int number6, int number7)
+        {
+            if (remoteClient!=-1&&msgType == (int)PacketTypes.WorldInfo)
+            {
+                var p = parkourPlays.GetParkourByName(TShock.Players[remoteClient].Name);
+                if (p != null)
+                {
+
+                    var X = Main.spawnTileX;
+                    var Y = Main.spawnTileY;
+                    Main.spawnTileX = (int)p.SpawnPoint.X/16;
+                    Main.spawnTileY = (int)p.SpawnPoint.Y/16+1;
+                    orig(msgType, remoteClient, ignoreClient, text, number, number2, number3, number4, number5, number6, number7);
+                    Main.spawnTileX = X;
+                    Main.spawnTileY = Y;
+                    return;
+                }
+            }
+           orig(msgType, remoteClient, ignoreClient, text, number, number2, number3, number4, number5, number6, number7);
+        }
 
         private void ParkourExit(CommandArgs args)
         {
@@ -256,6 +290,7 @@ namespace Parkour
                 parkourPlays.Remove(p);
 
                 args.Player.SendSuccessMessage("[i:3099]你已退出跑酷!");
+                args.Player.SendData(PacketTypes.WorldInfo);
             }
             else
             {
@@ -273,7 +308,6 @@ namespace Parkour
                 RegionHooks.RegionLeft -= RegionHooks_RegionLeft;
                 GetDataHandlers.PlayerSlot.UnRegister(OnPlayerSlot);
                 ServerApi.Hooks.WorldSave.Deregister(this, OnSave);
-                GetDataHandlers.PlayerSpawn.UnRegister(OnPlayerSpawn);
                 ServerApi.Hooks.ServerLeave.Deregister(this, OnLeave);
                 GetDataHandlers.KillMe.UnRegister(OnKillMe);
                 GetDataHandlers.ItemDrop.UnRegister(OnItemDrop);
@@ -427,36 +461,234 @@ namespace Parkour
 
         }
 
-        private void OnPlayerSpawn(object sender, GetDataHandlers.SpawnEventArgs e)
-        {
-            var p = parkourPlays.GetParkourByName(e.Player.Name);
-            if (p != null)
-            {
-                Task.Run(delegate
-                {
-                    Thread.Sleep(500);
-                    e.Player.Teleport(p.SpawnPoint.X, p.SpawnPoint.Y);
-                });
-            }
-        }
+        
 
         private void OnKillMe(object sender, GetDataHandlers.KillMeEventArgs e)
         {
-
             var p = parkourPlays.GetParkourByName(e.Player.Name);
             if (p != null)
             {
+                PacketSerializer serializer = new(false);
                 p.DeathTimes++;
-                e.Player.SendInfoMessage($"{(p.DeathTimes >= 100 ? "[i:3230]" : "[i:1173]")}你已经挂了{p.DeathTimes}次");
+                //if (p.DeathTimes%5==0)
+                    e.Player.SendInfoMessage($"{(p.DeathTimes >= 100 ? "[i:3230]" : "[i:321]")}[c/2F4F4F:你已经挂了{p.DeathTimes}次]");
                 p.lastDeathTime = DateTime.Now;
-                e.Player.Spawn(PlayerSpawnContext.ReviveFromDeath);
-                p.player.RespawnTimer = -1;
+            
+                e.Player.SendData(PacketTypes.WorldInfo);
+                //Main.spawnTileX = X;
+                //Main.spawnTileY = Y;
+                //Task.Run(delegate
+                //{
+                //    Thread.Sleep(500);
+                //    e.Player.Teleport(p.SpawnPoint.X, p.SpawnPoint.Y);
+                //});
+                e.Player.SendData(PacketTypes.PlayerSpawn, "", e.Player.Index);
+                e.Player.SendData(PacketTypes.WorldInfo);
                 e.Handled = true;
             }
 
         }
 
+        //public void SendSpawn(int remoteClient,int X,int Y)
+        //{
 
+
+        //    int num = remoteClient;
+
+
+        //    MemoryStream memoryStream = new MemoryStream();
+        //    PacketWriter packetWriter = Hooks.NetMessage.InvokeCreatePacketWriter(memoryStream);
+
+        //    packetWriter.BaseStream.Position = 0L;
+        //    long position = packetWriter.BaseStream.Position;
+        //    packetWriter.BaseStream.Position += 2L;
+        //    packetWriter.Write((byte)7);
+        //    packetWriter.Write((int)Main.time);
+        //    BitsByte bitsByte5 = (byte)0;
+        //    bitsByte5[0] = Main.dayTime;
+        //    bitsByte5[1] = Main.bloodMoon;
+        //    bitsByte5[2] = Main.eclipse;
+        //    packetWriter.Write(bitsByte5);
+        //    packetWriter.Write((byte)Main.moonPhase);
+        //    packetWriter.Write((short)Main.maxTilesX);
+        //    packetWriter.Write((short)Main.maxTilesY);
+        //    packetWriter.Write((short)X);
+        //    packetWriter.Write((short)Y);
+        //    packetWriter.Write((short)Main.worldSurface);
+        //    packetWriter.Write((short)Main.rockLayer);
+        //    packetWriter.Write(Main.worldID);
+        //    packetWriter.Write(Main.worldName);
+        //    packetWriter.Write((byte)Main.GameMode);
+        //    packetWriter.Write(Main.ActiveWorldFileData.UniqueId.ToByteArray());
+        //    packetWriter.Write(Main.ActiveWorldFileData.WorldGeneratorVersion);
+        //    packetWriter.Write((byte)Main.moonType);
+        //    packetWriter.Write((byte)WorldGen.treeBG1);
+        //    packetWriter.Write((byte)WorldGen.treeBG2);
+        //    packetWriter.Write((byte)WorldGen.treeBG3);
+        //    packetWriter.Write((byte)WorldGen.treeBG4);
+        //    packetWriter.Write((byte)WorldGen.corruptBG);
+        //    packetWriter.Write((byte)WorldGen.jungleBG);
+        //    packetWriter.Write((byte)WorldGen.snowBG);
+        //    packetWriter.Write((byte)WorldGen.hallowBG);
+        //    packetWriter.Write((byte)WorldGen.crimsonBG);
+        //    packetWriter.Write((byte)WorldGen.desertBG);
+        //    packetWriter.Write((byte)WorldGen.oceanBG);
+        //    packetWriter.Write((byte)WorldGen.mushroomBG);
+        //    packetWriter.Write((byte)WorldGen.underworldBG);
+        //    packetWriter.Write((byte)Main.iceBackStyle);
+        //    packetWriter.Write((byte)Main.jungleBackStyle);
+        //    packetWriter.Write((byte)Main.hellBackStyle);
+        //    packetWriter.Write(Main.windSpeedTarget);
+        //    packetWriter.Write((byte)Main.numClouds);
+        //    for (int n = 0; n < 3; n++)
+        //    {
+        //        packetWriter.Write(Main.treeX[n]);
+        //    }
+
+        //    for (int num8 = 0; num8 < 4; num8++)
+        //    {
+        //        packetWriter.Write((byte)Main.treeStyle[num8]);
+        //    }
+
+        //    for (int num9 = 0; num9 < 3; num9++)
+        //    {
+        //        packetWriter.Write(Main.caveBackX[num9]);
+        //    }
+
+        //    for (int num10 = 0; num10 < 4; num10++)
+        //    {
+        //        packetWriter.Write((byte)Main.caveBackStyle[num10]);
+        //    }
+
+        //    WorldGen.TreeTops.SyncSend(packetWriter);
+        //    if (!Main.raining)
+        //    {
+        //        Main.maxRaining = 0f;
+        //    }
+
+        //    packetWriter.Write(Main.maxRaining);
+        //    BitsByte bitsByte6 = (byte)0;
+        //    bitsByte6[0] = WorldGen.shadowOrbSmashed;
+        //    bitsByte6[1] = NPC.downedBoss1;
+        //    bitsByte6[2] = NPC.downedBoss2;
+        //    bitsByte6[3] = NPC.downedBoss3;
+        //    bitsByte6[4] = Main.hardMode;
+        //    bitsByte6[5] = NPC.downedClown;
+        //    bitsByte6[6] = Main.ServerSideCharacter;
+        //    bitsByte6[7] = NPC.downedPlantBoss;
+        //    packetWriter.Write(bitsByte6);
+        //    BitsByte bitsByte7 = (byte)0;
+        //    bitsByte7[0] = NPC.downedMechBoss1;
+        //    bitsByte7[1] = NPC.downedMechBoss2;
+        //    bitsByte7[2] = NPC.downedMechBoss3;
+        //    bitsByte7[3] = NPC.downedMechBossAny;
+        //    bitsByte7[4] = Main.cloudBGActive >= 1f;
+        //    bitsByte7[5] = WorldGen.crimson;
+        //    bitsByte7[6] = Main.pumpkinMoon;
+        //    bitsByte7[7] = Main.snowMoon;
+        //    packetWriter.Write(bitsByte7);
+        //    BitsByte bitsByte8 = (byte)0;
+        //    bitsByte8[1] = Main.fastForwardTimeToDawn;
+        //    bitsByte8[2] = Main.slimeRain;
+        //    bitsByte8[3] = NPC.downedSlimeKing;
+        //    bitsByte8[4] = NPC.downedQueenBee;
+        //    bitsByte8[5] = NPC.downedFishron;
+        //    bitsByte8[6] = NPC.downedMartians;
+        //    bitsByte8[7] = NPC.downedAncientCultist;
+        //    packetWriter.Write(bitsByte8);
+        //    BitsByte bitsByte9 = (byte)0;
+        //    bitsByte9[0] = NPC.downedMoonlord;
+        //    bitsByte9[1] = NPC.downedHalloweenKing;
+        //    bitsByte9[2] = NPC.downedHalloweenTree;
+        //    bitsByte9[3] = NPC.downedChristmasIceQueen;
+        //    bitsByte9[4] = NPC.downedChristmasSantank;
+        //    bitsByte9[5] = NPC.downedChristmasTree;
+        //    bitsByte9[6] = NPC.downedGolemBoss;
+        //    bitsByte9[7] = BirthdayParty.PartyIsUp;
+        //    packetWriter.Write(bitsByte9);
+        //    BitsByte bitsByte10 = (byte)0;
+        //    bitsByte10[0] = NPC.downedPirates;
+        //    bitsByte10[1] = NPC.downedFrost;
+        //    bitsByte10[2] = NPC.downedGoblins;
+        //    bitsByte10[3] = Sandstorm.Happening;
+        //    bitsByte10[4] = DD2Event.Ongoing;
+        //    bitsByte10[5] = DD2Event.DownedInvasionT1;
+        //    bitsByte10[6] = DD2Event.DownedInvasionT2;
+        //    bitsByte10[7] = DD2Event.DownedInvasionT3;
+        //    packetWriter.Write(bitsByte10);
+        //    BitsByte bitsByte11 = (byte)0;
+        //    bitsByte11[0] = NPC.combatBookWasUsed;
+        //    bitsByte11[1] = LanternNight.LanternsUp;
+        //    bitsByte11[2] = NPC.downedTowerSolar;
+        //    bitsByte11[3] = NPC.downedTowerVortex;
+        //    bitsByte11[4] = NPC.downedTowerNebula;
+        //    bitsByte11[5] = NPC.downedTowerStardust;
+        //    bitsByte11[6] = Main.forceHalloweenForToday;
+        //    bitsByte11[7] = Main.forceXMasForToday;
+        //    packetWriter.Write(bitsByte11);
+        //    BitsByte bitsByte12 = (byte)0;
+        //    bitsByte12[0] = NPC.boughtCat;
+        //    bitsByte12[1] = NPC.boughtDog;
+        //    bitsByte12[2] = NPC.boughtBunny;
+        //    bitsByte12[3] = NPC.freeCake;
+        //    bitsByte12[4] = Main.drunkWorld;
+        //    bitsByte12[5] = NPC.downedEmpressOfLight;
+        //    bitsByte12[6] = NPC.downedQueenSlime;
+        //    bitsByte12[7] = Main.getGoodWorld;
+        //    packetWriter.Write(bitsByte12);
+        //    BitsByte bitsByte13 = (byte)0;
+        //    bitsByte13[0] = Main.tenthAnniversaryWorld;
+        //    bitsByte13[1] = Main.dontStarveWorld;
+        //    bitsByte13[2] = NPC.downedDeerclops;
+        //    bitsByte13[3] = Main.notTheBeesWorld;
+        //    bitsByte13[4] = Main.remixWorld;
+        //    bitsByte13[5] = NPC.unlockedSlimeBlueSpawn;
+        //    bitsByte13[6] = NPC.combatBookVolumeTwoWasUsed;
+        //    bitsByte13[7] = NPC.peddlersSatchelWasUsed;
+        //    packetWriter.Write(bitsByte13);
+        //    BitsByte bitsByte14 = (byte)0;
+        //    bitsByte14[0] = NPC.unlockedSlimeGreenSpawn;
+        //    bitsByte14[1] = NPC.unlockedSlimeOldSpawn;
+        //    bitsByte14[2] = NPC.unlockedSlimePurpleSpawn;
+        //    bitsByte14[3] = NPC.unlockedSlimeRainbowSpawn;
+        //    bitsByte14[4] = NPC.unlockedSlimeRedSpawn;
+        //    bitsByte14[5] = NPC.unlockedSlimeYellowSpawn;
+        //    bitsByte14[6] = NPC.unlockedSlimeCopperSpawn;
+        //    bitsByte14[7] = Main.fastForwardTimeToDusk;
+        //    packetWriter.Write(bitsByte14);
+        //    BitsByte bitsByte15 = (byte)0;
+        //    bitsByte15[0] = Main.noTrapsWorld;
+        //    bitsByte15[1] = Main.zenithWorld;
+        //    bitsByte15[2] = NPC.unlockedTruffleSpawn;
+        //    packetWriter.Write(bitsByte15);
+        //    packetWriter.Write((byte)Main.sundialCooldown);
+        //    packetWriter.Write((byte)Main.moondialCooldown);
+        //    packetWriter.Write((short)WorldGen.SavedOreTiers.Copper);
+        //    packetWriter.Write((short)WorldGen.SavedOreTiers.Iron);
+        //    packetWriter.Write((short)WorldGen.SavedOreTiers.Silver);
+        //    packetWriter.Write((short)WorldGen.SavedOreTiers.Gold);
+        //    packetWriter.Write((short)WorldGen.SavedOreTiers.Cobalt);
+        //    packetWriter.Write((short)WorldGen.SavedOreTiers.Mythril);
+        //    packetWriter.Write((short)WorldGen.SavedOreTiers.Adamantite);
+        //    packetWriter.Write((sbyte)Main.invasionType);
+        //    packetWriter.Write(0uL);
+        //    packetWriter.Write(Sandstorm.IntendedSeverity);
+        //    int num21 = (int)packetWriter.BaseStream.Position;
+        //    packetWriter.BaseStream.Position = position;
+        //    packetWriter.Write((ushort)num21);
+        //    packetWriter.BaseStream.Position = num21;
+        //    if (Netplay.Clients[remoteClient].IsConnected())
+        //    {
+        //        try
+        //        {
+        //            Main.ActiveNetDiagnosticsUI.CountSentMessage(7, num21);
+        //            Hooks.NetMessage.InvokeSendBytes(Netplay.Clients[remoteClient].Socket, memoryStream.ToArray(), 0, num21, Netplay.Clients[remoteClient].ServerWriteCallBack, null, remoteClient);
+        //        }
+        //        catch
+        //        {
+        //        }
+        //    }
+        //}
         private void OnPlayerSlot(object sender, GetDataHandlers.PlayerSlotEventArgs e)
         {
             if (parkourInfos.Exists(x => x.Region == e.Player.CurrentRegion))
@@ -672,7 +904,7 @@ namespace Parkour
 
                     groupMessage += $"✅[{endPlay.parkour.Name}]玩家'{args.Player.Name}'完成了跑酷!!!\n" +
                         $"   ⏱️当前用时:{endPlay.GetFinalTime}秒\n" +
-                        $"   👻死亡次数{endPlay.DeathTimes}次\n";
+                        $"   👻死亡次数:{endPlay.DeathTimes}次\n";
 
                     //检测是否为全服的新记录
 
@@ -695,7 +927,7 @@ namespace Parkour
                            $"   [i:4600]{Math.Round(endPlay.parkour.FastestRecord.Value.TotalSeconds, 2)}秒 => [i:4601]{endPlay.GetFinalTime}秒");
                         //额外奖励
                         groupMessage += $"📗跑酷点全服新记录!!!\n" +
-                               $"   🥈{Math.Round(endPlay.parkour.FastestRecord.Value.TotalSeconds, 2)} => 🥇{endPlay.GetFinalTime}秒\n";
+                               $"   🥈{Math.Round(endPlay.parkour.FastestRecord.Value.TotalSeconds, 2)}秒 => 🥇{endPlay.GetFinalTime}秒\n";
                         args.Player.RewardPlayer(endPlay.parkour.Award * 2);
                         args.Player.SendWarningMessage($"   [i:2890]你收到了{endPlay.parkour.Award * 3}的跑酷新记录奖励!");
 
@@ -742,6 +974,7 @@ namespace Parkour
                         args.Player.SendWarningMessage($"   [i:3120]跑酷{endPlay.parkour.Name}还在奖励CD中\n" +
                                                        $"   下次可领取奖励时间{(endPlay.parkour.AwardCDRecords[args.Player.Account.ID] + TimeSpan.FromHours(endPlay.parkour.AwardCD)).ToString()}");
                     }
+                    args.Player.SendData(PacketTypes.WorldInfo);
                     break;
                 case "setspawn":
                     var setSpawnParkour = parkourPlays.GetParkourByName(args.Player.Name);
@@ -756,7 +989,8 @@ namespace Parkour
                         player.SendErrorMessage($"[i:224]复活5秒后才能设置记录点!");
                         return;
                     }
-                    setSpawnParkour.SpawnPoint = args.Player.TPlayer.position;
+                    setSpawnParkour.SpawnPoint = player.TPlayer.position;
+                    args.Player.SendData(PacketTypes.WorldInfo);
                     player.SendWarningMessage($"[i:224]已设置记录点!");
                     break;
                 case "delrecode":
@@ -927,6 +1161,7 @@ namespace Parkour
                     }
                     args.Player.SendErrorMessage("[i:4085]离开跑酷区域5秒,跑酷结束!");
                     parkourPlays.RemoveAll(x => x.player.Name == args.Player.Name);
+                    args.Player.SendData(PacketTypes.WorldInfo);
                 });
             }
             //args.Player.SendSuccessMessage("[i:4085]你离开了跑酷区域,你的背包已切换!");

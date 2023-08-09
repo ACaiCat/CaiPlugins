@@ -1,5 +1,4 @@
-﻿using Chireiden.TShock.Omni;
-using MySqlX.XDevAPI.Common;
+﻿using MySqlX.XDevAPI.Common;
 using System.Collections.Generic;
 using System.Text;
 using Terraria;

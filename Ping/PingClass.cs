@@ -70,30 +70,18 @@ public class PingClass
         pingresponse.Writer.TryWrite(index);
     }
 
-    public static async Task<string> Command_Ping(TSPlayer plr)
+    public static async Task<int> Command_Ping(TSPlayer plr)
     {
         try
         {
             var player = plr;
             var result = await Ping(player);
-            if (result.TotalMilliseconds >= 200)
-            {
-                return $"[c/FF0000:{result.TotalMilliseconds:F1}ms]";
-
-            }
-            else if (result.TotalMilliseconds > 80 && result.TotalMilliseconds < 200)
-            {
-                return $"[c/FFA500:{result.TotalMilliseconds:F1}ms]";
-            }
-            else
-            {
-                return $"[c/00FF00:{result.TotalMilliseconds:F1}ms]";
-            }
+            return (int)result.TotalMilliseconds;
         }
         catch (Exception e)
         {
             TShock.Log.ConsoleError(e.ToString());
-            return "[c/FF0000:不可用]";
+            return -1;
 
         }
     }

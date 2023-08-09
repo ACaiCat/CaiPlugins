@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.IO.Streams;
 using System.Text;
 using SSCManager;
 using Terraria;
@@ -23,18 +24,20 @@ namespace LobbyManager
         public LobbyManager(Main game)
         : base(game)
         {
-            base.Order = int.MinValue;
         }
         public static Config config { get; set; }
         public override void Initialize()
         {
             Config.GetConfig();
-            TShockAPI.Hooks.RegionHooks.RegionLeft += RegionHooks_RegionLeft;
-            TShockAPI.Hooks.PlayerHooks.PlayerPostLogin += PlayerHooks_PlayerPostLogin;
+            RegionHooks.RegionLeft += RegionHooks_RegionLeft;
+            PlayerHooks.PlayerPostLogin += PlayerHooks_PlayerPostLogin;
             ServerApi.Hooks.ServerJoin.Register(this, OnJoin);
             GeneralHooks.ReloadEvent+= OnReload;
             ServerApi.Hooks.NetGetData.Register(this, OnGetData);
+            //当世界加载完成
+
         }
+
 
         private void OnGetData(GetDataEventArgs args)
         {
@@ -44,14 +47,21 @@ namespace LobbyManager
                 plr.TPlayer.CurrentLoadoutIndex = 0;
                 plr.SendData(PacketTypes.SyncLoadout, "", plr.Index);
                 args.Handled = true;
+                plr.SendWarningMessage("[i:5325]本服务器不允许切换装备栏!");
             }
+
         }
 
         private void OnReload(ReloadEventArgs e)
         {
             Config.GetConfig();
-            e.Player.SendSuccessMessage("[主城综合]配置玩家已重载!");
+            e.Player.SendSuccessMessage("[i:50][主城综合]配置文件已重载!");
+
+
         }
+
+  
+
 
         private void OnJoin(JoinEventArgs args)
         {
@@ -62,7 +72,7 @@ namespace LobbyManager
             TShock.Players[args.Who].IgnoreSSCPackets = true;
         }
 
-        private void PlayerHooks_PlayerPostLogin(TShockAPI.Hooks.PlayerPostLoginEventArgs e)
+        private void PlayerHooks_PlayerPostLogin(PlayerPostLoginEventArgs e)
         {
             if (e.Player.HasPermission("lobby.ignore"))
             {
@@ -71,7 +81,7 @@ namespace LobbyManager
             e.Player.RestoryBag(config.SSCId);
         }
 
-        private void RegionHooks_RegionLeft(TShockAPI.Hooks.RegionHooks.RegionLeftEventArgs args)
+        private void RegionHooks_RegionLeft(RegionHooks.RegionLeftEventArgs args)
         {
             if (args.Player.HasPermission("lobby.ignore"))
             {
@@ -84,9 +94,10 @@ namespace LobbyManager
         {
             if (disposing)
             {
-                TShockAPI.Hooks.RegionHooks.RegionLeft -= RegionHooks_RegionLeft;
-                TShockAPI.Hooks.PlayerHooks.PlayerPostLogin -= PlayerHooks_PlayerPostLogin;
-                ServerApi.Hooks.ServerJoin.Register(this, OnJoin);
+                RegionHooks.RegionLeft -= RegionHooks_RegionLeft;
+                PlayerHooks.PlayerPostLogin -= PlayerHooks_PlayerPostLogin;
+                ServerApi.Hooks.ServerJoin.Deregister(this, OnJoin);
+                ServerApi.Hooks.NetGetData.Deregister(this, OnGetData);
             }
             base.Dispose(disposing);
         }

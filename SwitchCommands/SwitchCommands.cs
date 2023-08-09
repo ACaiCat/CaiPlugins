@@ -29,7 +29,7 @@ namespace SwitchCommands
 
         public override void Initialize()
         {
-            TableManager.CreateTables();
+            DB.Connect();
             database = DB.LoadAll();
             PluginCommands.RegisterCommands();
             ServerApi.Hooks.NetGetData.Register(this, GetData);
@@ -73,8 +73,8 @@ namespace SwitchCommands
                         if (playerState == PlayerState.SelectingSwitch)
                         {
                             player.SetData("SwitchPos", pos);
-                            player.SendSuccessMessage("成功绑定位于X：{0}、Y：{1} 的开关".SFormat(pos.X, pos.Y));
-                            player.SendSuccessMessage("输入/开关 ，可查看子命令列表".SFormat(pos.X, pos.Y));
+                            player.SendSuccessMessage("[i:50]成功绑定位于X：{0}、Y：{1} 的开关".SFormat(pos.X, pos.Y));
+                            player.SendSuccessMessage("[i:50]输入/开关 ，可查看子命令列表".SFormat(pos.X, pos.Y));
                             player.SetData("PlayerState", PlayerState.AddingCommands);
 
                             if (database.switchCommandList.ContainsKey(pos.ToString()))
@@ -102,7 +102,7 @@ namespace SwitchCommands
 
                                 if (seconds < database.switchCommandList[pos.ToString()].cooldown)
                                 {
-                                    player.SendErrorMessage("开关冷却中, 请等待{0}秒!".SFormat(database.switchCommandList[pos.ToString()].cooldown - seconds));
+                                    player.SendErrorMessage("[i:50]开关冷却中, 请等待{0}秒!".SFormat(database.switchCommandList[pos.ToString()].cooldown - seconds));
                                     //冷却提示有点刷屏
                                     return;
                                 }

@@ -48,8 +48,7 @@ namespace PlaceholderAPI
             placeholderManager.Register("{player}");
             placeholderManager.Register("{group}");
             placeholderManager.Register("{helditem}");
-            placeholderManager.Register("{player
-                }");
+            placeholderManager.Register("{player}");
             placeholderManager.Register("{playerMaxHP}");
             placeholderManager.Register("{playerMaxMana}");
             placeholderManager.Register("{playerHP}");

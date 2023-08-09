@@ -35,7 +35,7 @@ public class ProjSpawner : TerrariaPlugin
         {
             if (args.Parameters.Count == 0)
             {
-                args.Player.SendInfoMessage("[i:1359]/弹幕生成 <弹幕ID> <弹幕伤害>-----在自己头上生成指定伤害的指定弹幕!");
+                args.Player.SendInfoMessage("[i:50][i:1359]/弹幕生成 <弹幕ID> <弹幕伤害>-----在自己头上生成指定伤害的指定弹幕!");
             }
             else
             {
@@ -50,7 +50,7 @@ public class ProjSpawner : TerrariaPlugin
         }
         catch
         {
-            args.Player.SendErrorMessage("[i:1359]请正确输入 /弹幕生成 <弹幕ID> <弹幕伤害>");
+            args.Player.SendErrorMessage("[i:50][i:1359]请正确输入 /弹幕生成 <弹幕ID> <弹幕伤害>");
         }
     }
 

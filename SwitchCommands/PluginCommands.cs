@@ -23,7 +23,7 @@ namespace SwitchCommands
         private static void SwitchReload(CommandArgs args)
         {
             SwitchCommands.database = DB.LoadAll();
-            args.Player.SendSuccessMessage("[开关插件]开关重载成功！！！");
+            args.Player.SendSuccessMessage("[i:50][开关插件]开关重载成功！！！");
         }
 
         private static void SwitchCmd(CommandArgs args)
@@ -33,14 +33,14 @@ namespace SwitchCommands
             switch (player.GetData<PlayerState>("PlayerState"))
             {
                 case PlayerState.None:
-                    player.SendSuccessMessage("激活一个开关以将其绑定,之后可输入/开关 ，查看子命令");
+                    player.SendSuccessMessage("[i:50]激活一个开关以将其绑定,之后可输入/开关 ，查看子命令");
                     player.SetData("PlayerState", PlayerState.SelectingSwitch);
                     return;
 
                 case PlayerState.AddingCommands:
                     if (args.Parameters.Count == 0)
                     {
-                        player.SendErrorMessage("正确指令：");
+                        player.SendErrorMessage("[i:50]正确指令：");
                         player.SendErrorMessage(switchParameters);
                         return;
                     }
@@ -67,22 +67,22 @@ namespace SwitchCommands
 
                             }
                             cmdInfo.commandList.Add(command);
-                            player.SendSuccessMessage("成功添加: {0}".SFormat(command));
+                            player.SendSuccessMessage("[i:50]成功添加: {0}".SFormat(command));
                             break;
                         case "clear":
                         case "清空命令":
                         case "qkml":
                             cmdInfo.commandList.Clear();
-                            player.SendSuccessMessage("命令列表已清空!");
+                            player.SendSuccessMessage("[i:50]命令列表已清空!");
                             break;
 
                         case "list":
                         case "列表":
                         case "lb":
-                            player.SendMessage("当前开关绑定的指令:", Color.Green);
+                            player.SendMessage("[i:50]当前开关绑定的指令:", Color.Green);
                             for (int x = 0; x < cmdInfo.commandList.Count; x++)
                             {
-                                player.SendMessage("({0}) ".SFormat(x) + cmdInfo.commandList[x], Color.Yellow);
+                                player.SendMessage("[i:50]({0}) ".SFormat(x) + cmdInfo.commandList[x], Color.Yellow);
                             }
                             break;
 
@@ -93,13 +93,13 @@ namespace SwitchCommands
 
                             if (args.Parameters.Count < 2 || !int.TryParse(args.Parameters[1], out commandIndex))
                             {
-                                player.SendErrorMessage("语法错误：/开关 del <指令>");
+                                player.SendErrorMessage("[i:50]语法错误：/开关 del <指令>");
                                 return;
                             }
 
                             var cmdDeleted = cmdInfo.commandList[commandIndex];
                             cmdInfo.commandList.RemoveAt(commandIndex);
-                            player.SendSuccessMessage("成功删除了第{1}条指令：{0}。".SFormat(cmdDeleted, commandIndex));
+                            player.SendSuccessMessage("[i:50]成功删除了第{1}条指令：{0}。".SFormat(cmdDeleted, commandIndex));
 
                             break;
 
@@ -110,13 +110,13 @@ namespace SwitchCommands
 
                             if (args.Parameters.Count < 2 || !float.TryParse(args.Parameters[1], out 冷却))
                             {
-                                player.SendErrorMessage("语法错误：/开关 冷却 <秒>");
+                                player.SendErrorMessage("[i:50]语法错误：/开关 冷却 <秒>");
                                 return;
                             }
 
                             cmdInfo.cooldown = 冷却;
 
-                            player.SendSuccessMessage("冷却时间已设置为 {0} 秒".SFormat(冷却));
+                            player.SendSuccessMessage("[i:50]冷却时间已设置为 {0} 秒".SFormat(冷却));
                             break;
 
                         case "权限忽略":
@@ -126,13 +126,13 @@ namespace SwitchCommands
 
                             if (args.Parameters.Count < 2 || !bool.TryParse(args.Parameters[1], out 权限忽略))
                             {
-                                player.SendErrorMessage("语法错误：/开关 权限忽略 <true/false>");
+                                player.SendErrorMessage("[i:50]语法错误：/开关 权限忽略 <true/false>");
                                 return;
                             }
 
                             cmdInfo.ignorePerms = 权限忽略;
 
-                            player.SendSuccessMessage("是否忽略玩家权限设置为: {0}.".SFormat(权限忽略));
+                            player.SendSuccessMessage("[i:50]是否忽略玩家权限设置为: {0}.".SFormat(权限忽略));
                             break;
 
                         case "取消":
@@ -140,13 +140,13 @@ namespace SwitchCommands
                         case "qx":
                             player.SetData("PlayerState", PlayerState.None);
                             player.SetData("CommandInfo", new CommandInfo());
-                            player.SendSuccessMessage("已取消添加要添加的命令");
+                            player.SendSuccessMessage("[i:50]已取消添加要添加的命令");
                             return;
 
                         case "重绑":
                         case "rebind":
                         case "zb":
-                            player.SendSuccessMessage("重新激活开关后可以重新绑定");
+                            player.SendSuccessMessage("[i:50]重新激活开关后可以重新绑定");
                             player.SetData("PlayerState", PlayerState.SelectingSwitch);
                             return;
 
@@ -155,7 +155,7 @@ namespace SwitchCommands
                         case "wc":
                             var switchPos = player.GetData<SwitchPos>("SwitchPos");
 
-                            player.SendSuccessMessage("设置成功的开关位于 X： {0}， Y： {1}".SFormat(switchPos.X, switchPos.Y));
+                            player.SendSuccessMessage("[i:50]设置成功的开关位于 X： {0}， Y： {1}".SFormat(switchPos.X, switchPos.Y));
                             foreach (string cmd in cmdInfo.commandList)
                             {
                                 player.SendMessage(cmd, Color.Yellow);
@@ -169,7 +169,7 @@ namespace SwitchCommands
                             return;
 
                         default:
-                            player.SendErrorMessage("语法无效. " + switchParameters);
+                            player.SendErrorMessage("[i:50]语法无效. " + switchParameters);
                             return;
                     }
                      

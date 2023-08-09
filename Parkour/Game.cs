@@ -50,14 +50,14 @@ public class ParkourPlay
     {
         get
         {
-            return Math.Round(currentTime.TotalSeconds, 2).ToString();
+            return Math.Round(currentTime.TotalSeconds, 2, MidpointRounding.AwayFromZero).ToString();
         }
     }
     public string GetFinalTime
     {
         get
         {
-            return Math.Round(totalTime.TotalSeconds, 2).ToString();
+            return Math.Round(totalTime.TotalSeconds, 2, MidpointRounding.AwayFromZero).ToString();
         }
     }
     public bool IsPlaying { get; set; } = false;
@@ -152,7 +152,7 @@ public class ParkourInfo
 
     public string GetRecord(int index)
     {
-        return Math.Round(Records[index].TotalSeconds,2).ToString();
+        return Math.Round(Records[index].TotalSeconds,2, MidpointRounding.AwayFromZero).ToString();
     }
     public ParkourInfo()
     {
