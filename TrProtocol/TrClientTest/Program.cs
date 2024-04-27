@@ -14,7 +14,7 @@ namespace TrClientTest
         static void Main(string[] args)
         {
             var client = new TClient();
-            var ip = "43.136.69.147";
+            var ip = "127.0.0.1";
             ushort port = 8888;
             /*
             ip = "43.248.184.35";
@@ -43,28 +43,7 @@ namespace TrClientTest
                 {
                     return;
                 }
-                //for (; ; )
-                //{
-                //    client.Send(new RequestWorldInfo());
-                //    client.ChatText("/logout");
-                //}
             });
-
-            new Thread(() =>
-            {
-                for (; ; )
-                {
-                    var t = Console.ReadLine();
-                    if (t == "a")
-                    {
-                        client.ChatText("/su");
-                        client.ChatText("/par start 圣诞跑酷");
-                        client.ChatText("/par end");
-                    }
-                    //if (t == "a") shouldSpam = true;
-                    //else client.ChatText(t);
-                }
-            }).Start();
 
             client.GameLoop(new IPEndPoint(IPAddress.Parse(ip), port), password);
         }

@@ -14,9 +14,9 @@ namespace Platform
 
         public override string Author => "Cai";
 
-        public override string Description => "玩家设备API";
+        public override string Description => "判断玩家设备";
 
-        public override string Name => "Platform";
+        public override string Name => "Platform(判断玩家设备)";
 
         public override Version Version => new Version(1, 0, 0, 0);
 
@@ -39,17 +39,7 @@ namespace Platform
         private void OnJoin(JoinEventArgs args)
         {
             TShock.Log.ConsoleInfo($"[Platform]玩家{TShock.Players[args.Who].Name}游玩平台:{Platforms[args.Who]}");
-        }
-
-        public enum PlatformType : byte // TypeDefIndex: 5205
-        {
-            PE = 0,
-            Stadia = 1,
-            XBOX = 2,
-            PSN = 3,
-            Editor = 4,
-            Switch = 5,
-            PC = 233
+            
         }
 
 
@@ -66,22 +56,41 @@ namespace Platform
                 instance.reader.BaseStream.Position = start + 1;
                 var PlayerSlot = instance.reader.ReadByte();
                 var Platform = instance.reader.ReadByte();
-                Platforms[PlayerSlot] = (PlatformType)Platform;
-                Console.WriteLine($"[PE]PlayerSlot={PlayerSlot},Plat={Platform}");
+                Platforms[instance.whoAmI] = (PlatformType)Platform;
+                //Console.WriteLine($"[PE]PlayerSlot={PlayerSlot},Plat={Platform}");
             }
+            
             return orig(instance, ref packetId, ref readOffset, ref start, ref length, ref messageType, maxPackets);
         }
-
+        public enum PlatformType : byte // TypeDefIndex: 5205
+        {
+            PE = 0,
+            Stadia = 1,
+            XBOX = 2,
+            PSN = 3,
+            Editor = 4,
+            Switch = 5,
+            PC = 233
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
 
-                
+                On.OTAPI.Hooks.MessageBuffer.InvokeGetData -= OnGetData;
+                ServerApi.Hooks.ServerJoin.Deregister(this, OnJoin);
             }
             base.Dispose(disposing);
         }
 
 
     }
+    public static class PlatformTool
+    {
+        public static string GetPlatform(this TSPlayer plr)
+        {
+            return Platform.Platforms[plr.Index].ToString();
+        }
+
+    } 
 }

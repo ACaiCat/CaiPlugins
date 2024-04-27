@@ -291,6 +291,7 @@ namespace Parkour
 
                 args.Player.SendSuccessMessage("[i:3099]你已退出跑酷!");
                 args.Player.SendData(PacketTypes.WorldInfo);
+                args.Player.RestoryBackBag();
             }
             else
             {
@@ -1162,6 +1163,7 @@ namespace Parkour
                     args.Player.SendErrorMessage("[i:4085]离开跑酷区域5秒,跑酷结束!");
                     parkourPlays.RemoveAll(x => x.player.Name == args.Player.Name);
                     args.Player.SendData(PacketTypes.WorldInfo);
+                    args.Player.RestoryBackBag();
                 });
             }
             //args.Player.SendSuccessMessage("[i:4085]你离开了跑酷区域,你的背包已切换!");

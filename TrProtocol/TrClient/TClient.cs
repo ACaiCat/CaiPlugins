@@ -151,11 +151,11 @@ namespace TrClient
             On<StatusText>(status => OnChat?.Invoke(this, status.Text, Color.White));
             On<NetTextModuleS2C>(text => OnChat?.Invoke(this, text.Text, text.Color));
             On<SmartTextMessage>(text => OnChat?.Invoke(this, text.Text, text.Color));
-            On<Kick>(kick =>
-            {
-                OnMessage?.Invoke(this, "Kicked : " + kick.Reason);
-                connected = false;
-            });
+            //On<Kick>(kick =>
+            //{
+            //    OnMessage?.Invoke(this, "Kicked : " + kick.Reason);
+            //    connected = false;
+            //});
             On<LoadPlayer>(player =>
             {
                 PlayerSlot = player.PlayerSlot;

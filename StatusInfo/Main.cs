@@ -14,6 +14,7 @@ using Terraria.Localization;
 using StatusInfo;
 using System.Timers;
 using TShockAPI.Hooks;
+using SBPlugin;
 
 namespace GameStatus
 {
@@ -41,7 +42,7 @@ namespace GameStatus
         {
             {"{玩家名}"},{"{玩家组名}"},{"{玩家血量}"},{"{玩家血量最大值}"},{"{玩家魔力}"},{"{玩家魔力最大值}"},{"{玩家幸运值}"},{"{玩家X坐标}"},{"{玩家Y坐标}"},{"{玩家所处区域}"},
             {"{玩家手持物品.图标}"},{"{玩家手持物品.数量}"},{"{玩家手持物品.修饰语}"},{"{玩家手持物品.名字}"},{"{玩家死亡状态}"},{"{重生倒计时}" },{ "{智能死亡时间}"},{"{当前环境}"},
-            {"{当前服务器在线人数}"},{"{所有服务器总在线人数}"},{"{玩家延迟}"},{"{全服平均延迟}"},{"{服务器帧率}"},{"{今日渔夫任务}"},{"{地图名称}"},{ "{当前时间}"}
+            {"{当前服务器在线人数}"},{"{所有服务器总在线人数}"},{"{玩家延迟}"},{"{全服平均延迟}"},{"{服务器帧率}"},{"{今日渔夫任务}"},{"{地图名称}"},{ "{当前时间}"},{ "{上一秒数据包发送}"},{ "{上一秒数据包接收}"}
         };
         public override void Initialize()
         {
@@ -65,7 +66,15 @@ namespace GameStatus
                 , plr.TPlayer.statMana, plr.TPlayer.statManaMax2, plr.GetLuck(), plr.TileX, plr.TileY, plr.CurrentRegion == null ? "空区域" : plr.CurrentRegion.Name
                 , string.IsNullOrEmpty(TShock.Utils.ItemTag(plr.TPlayer.HeldItem))?"[i:1]": TShock.Utils.ItemTag(plr.TPlayer.HeldItem), plr.TPlayer.HeldItem.stack, Lang.prefix[plr.TPlayer.HeldItem.prefix].Value, string.IsNullOrEmpty(plr.TPlayer.HeldItem.Name)?"空格位":plr.TPlayer.HeldItem.Name
                 ,plr.Dead?"已死亡":"存活",plr.RespawnTimer, plr.RespawnTimer==0? "":$"[i:321]复活倒计时:[c/CCCCCC:{plr.RespawnTimer}秒]",plr.GetEnvString(),TShock.Utils.GetActivePlayerCount(),totalOnline,Ping.Ping.GetPing(plr),Ping.Ping.GetAveragePing(),
-                SBPlugin.ServerFPS.GetServerFPS(),plr.GetFisheMission(),Main.worldName,DateTime.Now.ToString("HH:mm")));
+                SBPlugin.ServerFPS.GetServerFPS(),plr.GetFisheMission(),Main.worldName,DateTime.Now.ToString("HH:mm"),ServerFPS.lastSendDataCount+"个/秒", ServerFPS.lastGetDataCount + "个/秒"));
+                if (plr.HasPermission("info.package")) 
+                {
+                    statusTextBuilder.AppendLine($"[i:4343]接收数据包:{SBPlugin.ServerFPS.lastSendDataCount}个/秒");
+                    statusTextBuilder.AppendLine($"[i:4344]发送数据包:{SBPlugin.ServerFPS.lastGetDataCount}个/秒");
+                    //statusTextBuilder.AppendLine($"[i:4021]CPU利用率:{ServerFPS.cpu}%");
+                    //statusTextBuilder.AppendLine($"[i:149]内存:{ServerFPS.memory}%");
+                } ;
+
             }, 60uL);
 
             timer.Interval = config.RefreshSpeed;
@@ -80,7 +89,9 @@ namespace GameStatus
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("当前服务器状态:");
             sb.AppendLine("[i:17]平均延迟:" + Ping.Ping.GetAveragePing());
-            sb.AppendLine("[i:3099]服务器帧率(波动):" + SBPlugin.ServerFPS.GetServerFPS()); 
+            sb.AppendLine("[i:3099]服务器帧率(波动):" + SBPlugin.ServerFPS.GetServerFPS());
+            sb.AppendLine("[i:4343]接收数据包:" + SBPlugin.ServerFPS.lastSendDataCount + "个/秒");
+            sb.AppendLine("[i:4344]发送数据包:" + SBPlugin.ServerFPS.lastGetDataCount + "个/秒");
             //发送全服玩家的延迟
             sb.AppendLine("[i:267]全服玩家延迟:");
             foreach (var i in TShock.Players)

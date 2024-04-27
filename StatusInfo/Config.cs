@@ -22,6 +22,8 @@ namespace StatusInfo
         "[i:109]魔力:[c/6699FF:{玩家魔力}/{玩家魔力最大值}]\r\n" +
         "[i:393]坐标:[c/FFFFFF:{玩家X坐标},{玩家Y坐标}]\r\n" +
         "[i:149]所处区域:[c/00BFFF:{玩家所处区域}]\r\n" +
+        "[i:4344]发送数据包:{上一秒数据包发送}\r\n" +
+        "[i:4344]接收数据包:{上一秒数据包接收}\r\n" +
         "[i:321]复活倒计时:[c/CCCCCC:{玩家死亡状态},{重生倒计时}秒]\r\n" +
             "{智能死亡时间}" +
         "[i:3122]Ping(延迟/平均):{玩家延迟}({全服平均延迟})\r\n" +
@@ -41,13 +43,12 @@ namespace StatusInfo
 
         public Dictionary<string, string> Rests { get; set; } = new Dictionary<string, string>();
 
-        public static Config Read(string savepath = "")
+        public static Config Read(string savepath = "tshock/StatusInfo.json")
         {
             if (string.IsNullOrWhiteSpace(savepath))
             {
                 savepath = TShock.SavePath;
             }
-            savepath = Path.Combine(savepath, "StatusInfo.json");
             Directory.CreateDirectory(Path.GetDirectoryName(savepath));
             try
             {
@@ -58,8 +59,8 @@ namespace StatusInfo
                 }
                 else
                 {
-                    TShock.Log.ConsoleInfo("[计分板]正在新建Config...");
-                    File.WriteAllText(savepath, JsonConvert.SerializeObject(new Config { Rests = { { "127.0.0.1:7878", "token" } } }, Formatting.Indented));
+                    TShock.Log.ConsoleInfo("[StatusInfo]正在新建Config...");
+                    File.WriteAllText(savepath, JsonConvert.SerializeObject(new Config(), Formatting.Indented));
                 }
                 return config;
             }
@@ -70,13 +71,12 @@ namespace StatusInfo
             }
         }
 
-        public bool Write(string savepath = "")
+        public bool Write(string savepath = "tshock/StatusInfo.json")
         {
             if (string.IsNullOrWhiteSpace(savepath))
             {
                 savepath = TShock.SavePath;
             }
-            savepath = Path.Combine(savepath, "StatusInfo.json");
             Directory.CreateDirectory(Path.GetDirectoryName(savepath));
             try
             {
