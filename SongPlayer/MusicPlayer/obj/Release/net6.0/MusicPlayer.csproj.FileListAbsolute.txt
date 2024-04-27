@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\MusicPlayer.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\MusicPlayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\MusicPlayer.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\MusicPlayer.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\MusicPlayer.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\bin\Release\net6.0\MusicPlayer.deps.json
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\bin\Release\net6.0\MusicPlayer.dll
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\bin\Release\net6.0\MusicPlayer.pdb
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\MusicPlayer.dll
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\refint\MusicPlayer.dll
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\MusicPlayer.pdb
+C:\Users\13110\source\repos\MiniGames\SongPlayer\MusicPlayer\obj\Release\net6.0\ref\MusicPlayer.dll

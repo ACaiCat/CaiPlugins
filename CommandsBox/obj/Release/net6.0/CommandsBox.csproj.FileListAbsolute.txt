@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\CommandsBox\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\CommandsBox\bin\Release\net6.0\CommandsBox.deps.json
+C:\Users\13110\source\repos\MiniGames\CommandsBox\bin\Release\net6.0\CommandsBox.dll
+C:\Users\13110\source\repos\MiniGames\CommandsBox\bin\Release\net6.0\CommandsBox.pdb
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\CommandsBox.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\CommandsBox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\CommandsBox.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\CommandsBox.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\CommandsBox.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\CommandsBox.dll
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\refint\CommandsBox.dll
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\CommandsBox.pdb
+C:\Users\13110\source\repos\MiniGames\CommandsBox\obj\Release\net6.0\ref\CommandsBox.dll

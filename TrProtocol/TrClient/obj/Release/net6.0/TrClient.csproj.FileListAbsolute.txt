@@ -1,0 +1,15 @@
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\bin\Release\net6.0\TrClient.deps.json
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\bin\Release\net6.0\TrClient.dll
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\bin\Release\net6.0\TrClient.pdb
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\bin\Release\net6.0\TrProtocol.dll
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\bin\Release\net6.0\TrProtocol.pdb
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\TrClient.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\TrClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\TrClient.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\TrClient.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\TrClient.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\TrClient.csproj.CopyComplete
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\TrClient.dll
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\refint\TrClient.dll
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\TrClient.pdb
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrClient\obj\Release\net6.0\ref\TrClient.dll

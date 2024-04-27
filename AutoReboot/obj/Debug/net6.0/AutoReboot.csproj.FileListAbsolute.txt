@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\AutoReboot\bin\Debug\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\AutoReboot\bin\Debug\net6.0\AutoReboot.deps.json
+C:\Users\13110\source\repos\MiniGames\AutoReboot\bin\Debug\net6.0\AutoReboot.dll
+C:\Users\13110\source\repos\MiniGames\AutoReboot\bin\Debug\net6.0\AutoReboot.pdb
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\AutoReboot.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\AutoReboot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\AutoReboot.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\AutoReboot.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\AutoReboot.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\AutoReboot.dll
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\refint\AutoReboot.dll
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\AutoReboot.pdb
+C:\Users\13110\source\repos\MiniGames\AutoReboot\obj\Debug\net6.0\ref\AutoReboot.dll

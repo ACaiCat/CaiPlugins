@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\bin\Release\net6.0\ProjSpawner.deps.json
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\bin\Release\net6.0\ProjSpawner.dll
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\bin\Release\net6.0\ProjSpawner.pdb
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\ProjSpawner.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\ProjSpawner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\ProjSpawner.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\ProjSpawner.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\ProjSpawner.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\ProjSpawner.dll
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\refint\ProjSpawner.dll
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\ProjSpawner.pdb
+C:\Users\13110\source\repos\MiniGames\ProjSpawner\obj\Release\net6.0\ref\ProjSpawner.dll

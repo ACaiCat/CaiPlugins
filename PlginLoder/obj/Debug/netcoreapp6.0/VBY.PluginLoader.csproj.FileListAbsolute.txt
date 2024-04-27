@@ -1,0 +1,11 @@
+C:\Users\13110\source\repos\MiniGames\PlginLoder\bin\Debug\netcoreapp6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\PlginLoder\bin\Debug\netcoreapp6.0\VBY.PluginLoader.deps.json
+C:\Users\13110\source\repos\MiniGames\PlginLoder\bin\Debug\netcoreapp6.0\VBY.PluginLoader.dll
+C:\Users\13110\source\repos\MiniGames\PlginLoder\bin\Debug\netcoreapp6.0\VBY.PluginLoader.pdb
+C:\Users\13110\source\repos\MiniGames\PlginLoder\obj\Debug\netcoreapp6.0\VBY.PluginLoader.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\PlginLoder\obj\Debug\netcoreapp6.0\VBY.PluginLoader.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\PlginLoder\obj\Debug\netcoreapp6.0\VBY.PluginLoader.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\PlginLoder\obj\Debug\netcoreapp6.0\VBY.PluginLoader.dll
+C:\Users\13110\source\repos\MiniGames\PlginLoder\obj\Debug\netcoreapp6.0\refint\VBY.PluginLoader.dll
+C:\Users\13110\source\repos\MiniGames\PlginLoder\obj\Debug\netcoreapp6.0\VBY.PluginLoader.pdb
+C:\Users\13110\source\repos\MiniGames\PlginLoder\obj\Debug\netcoreapp6.0\ref\VBY.PluginLoader.dll

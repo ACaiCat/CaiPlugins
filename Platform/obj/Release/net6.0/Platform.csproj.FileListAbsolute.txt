@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\Platform\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\Platform\bin\Release\net6.0\Platform.deps.json
+C:\Users\13110\source\repos\MiniGames\Platform\bin\Release\net6.0\Platform.dll
+C:\Users\13110\source\repos\MiniGames\Platform\bin\Release\net6.0\Platform.pdb
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\Platform.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\Platform.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\Platform.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\Platform.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\Platform.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\Platform.dll
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\refint\Platform.dll
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\Platform.pdb
+C:\Users\13110\source\repos\MiniGames\Platform\obj\Release\net6.0\ref\Platform.dll

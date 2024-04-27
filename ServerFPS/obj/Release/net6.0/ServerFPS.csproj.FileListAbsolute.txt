@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\ServerFPS\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\ServerFPS\bin\Release\net6.0\ServerFPS.deps.json
+C:\Users\13110\source\repos\MiniGames\ServerFPS\bin\Release\net6.0\ServerFPS.dll
+C:\Users\13110\source\repos\MiniGames\ServerFPS\bin\Release\net6.0\ServerFPS.pdb
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\ServerFPS.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\ServerFPS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\ServerFPS.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\ServerFPS.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\ServerFPS.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\ServerFPS.dll
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\refint\ServerFPS.dll
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\ServerFPS.pdb
+C:\Users\13110\source\repos\MiniGames\ServerFPS\obj\Release\net6.0\ref\ServerFPS.dll

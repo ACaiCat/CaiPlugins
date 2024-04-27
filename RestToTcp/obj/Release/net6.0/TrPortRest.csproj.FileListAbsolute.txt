@@ -1,0 +1,14 @@
+C:\Users\13110\source\repos\MiniGames\RestToTcp\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\RestToTcp\bin\Release\net6.0\TrPortRest.deps.json
+C:\Users\13110\source\repos\MiniGames\RestToTcp\bin\Release\net6.0\TrPortRest.dll
+C:\Users\13110\source\repos\MiniGames\RestToTcp\bin\Release\net6.0\TrPortRest.pdb
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\TrPortRest.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\TrPortRest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\TrPortRest.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\TrPortRest.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\TrPortRest.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\TrPortRest.csproj.CopyComplete
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\TrPortRest.dll
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\refint\TrPortRest.dll
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\TrPortRest.pdb
+C:\Users\13110\source\repos\MiniGames\RestToTcp\obj\Release\net6.0\ref\TrPortRest.dll

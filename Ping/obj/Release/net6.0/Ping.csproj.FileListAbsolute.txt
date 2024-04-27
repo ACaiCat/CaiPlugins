@@ -1,0 +1,16 @@
+C:\Users\13110\source\repos\MiniGames\Ping\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\Ping\bin\Release\net6.0\Ping.deps.json
+C:\Users\13110\source\repos\MiniGames\Ping\bin\Release\net6.0\Ping.dll
+C:\Users\13110\source\repos\MiniGames\Ping\bin\Release\net6.0\Ping.pdb
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\Ping.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\Ping.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\Ping.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\Ping.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\Ping.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\Ping.dll
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\refint\Ping.dll
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\Ping.pdb
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\ref\Ping.dll
+C:\Users\13110\source\repos\MiniGames\Ping\bin\Release\net6.0\ServerFPS.dll
+C:\Users\13110\source\repos\MiniGames\Ping\bin\Release\net6.0\ServerFPS.pdb
+C:\Users\13110\source\repos\MiniGames\Ping\obj\Release\net6.0\Ping.csproj.CopyComplete

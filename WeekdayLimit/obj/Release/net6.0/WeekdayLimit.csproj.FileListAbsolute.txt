@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\bin\Release\net6.0\WeekdayLimit.deps.json
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\bin\Release\net6.0\WeekdayLimit.dll
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\bin\Release\net6.0\WeekdayLimit.pdb
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\WeekdayLimit.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\WeekdayLimit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\WeekdayLimit.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\WeekdayLimit.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\WeekdayLimit.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\WeekdayLimit.dll
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\refint\WeekdayLimit.dll
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\WeekdayLimit.pdb
+C:\Users\13110\source\repos\MiniGames\WeekdayLimit\obj\Release\net6.0\ref\WeekdayLimit.dll

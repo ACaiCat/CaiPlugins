@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\bin\Release\net6.0\PlaceholderAPI.deps.json
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\bin\Release\net6.0\PlaceholderAPI.dll
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\bin\Release\net6.0\PlaceholderAPI.pdb
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\PlaceholderAPI.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\PlaceholderAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\PlaceholderAPI.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\PlaceholderAPI.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\PlaceholderAPI.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\PlaceholderAPI.dll
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\refint\PlaceholderAPI.dll
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\PlaceholderAPI.pdb
+C:\Users\13110\source\repos\MiniGames\PlaceholderAPI\obj\Release\net6.0\ref\PlaceholderAPI.dll

@@ -1,0 +1,16 @@
+D:\Projects\PlaceholderAPI\bin\Debug\PlaceholderAPI.dll
+D:\Projects\PlaceholderAPI\bin\Debug\PlaceholderAPI.pdb
+D:\Projects\PlaceholderAPI\bin\Debug\OTAPI.dll
+D:\Projects\PlaceholderAPI\bin\Debug\TerrariaServer.exe
+D:\Projects\PlaceholderAPI\bin\Debug\TShockAPI.dll
+D:\Projects\PlaceholderAPI\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\PlaceholderAPI\bin\Debug\OTAPI.pdb
+D:\Projects\PlaceholderAPI\bin\Debug\TerrariaServer.pdb
+D:\Projects\PlaceholderAPI\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.csproj.CoreCompileInputs.cache
+D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.csproj.CopyComplete
+D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.dll
+D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.pdb
+D:\Projects\PlaceholderAPI\bin\Debug\MySql.Data.dll
+D:\Projects\PlaceholderAPI\bin\Debug\Mono.Data.Sqlite.dll
+D:\Projects\PlaceholderAPI\obj\Debug\PlaceholderAPI.csproj.AssemblyReference.cache

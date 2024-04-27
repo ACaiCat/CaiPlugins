@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\ServerHelp\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\ServerHelp\bin\Release\net6.0\ServerHelp.deps.json
+C:\Users\13110\source\repos\MiniGames\ServerHelp\bin\Release\net6.0\ServerHelp.dll
+C:\Users\13110\source\repos\MiniGames\ServerHelp\bin\Release\net6.0\ServerHelp.pdb
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\ServerHelp.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\ServerHelp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\ServerHelp.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\ServerHelp.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\ServerHelp.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\ServerHelp.dll
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\refint\ServerHelp.dll
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\ServerHelp.pdb
+C:\Users\13110\source\repos\MiniGames\ServerHelp\obj\Release\net6.0\ref\ServerHelp.dll

@@ -1,0 +1,16 @@
+C:\Users\13110\source\repos\MiniGames\LobbyManager\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\LobbyManager\bin\Release\net6.0\LobbyManager.deps.json
+C:\Users\13110\source\repos\MiniGames\LobbyManager\bin\Release\net6.0\LobbyManager.dll
+C:\Users\13110\source\repos\MiniGames\LobbyManager\bin\Release\net6.0\LobbyManager.pdb
+C:\Users\13110\source\repos\MiniGames\LobbyManager\bin\Release\net6.0\SSCManager.dll
+C:\Users\13110\source\repos\MiniGames\LobbyManager\bin\Release\net6.0\SSCManager.pdb
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\LobbyManager.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\LobbyManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\LobbyManager.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\LobbyManager.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\LobbyManager.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\LobbyManager.csproj.CopyComplete
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\LobbyManager.dll
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\refint\LobbyManager.dll
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\LobbyManager.pdb
+C:\Users\13110\source\repos\MiniGames\LobbyManager\obj\Release\net6.0\ref\LobbyManager.dll

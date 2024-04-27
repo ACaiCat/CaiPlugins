@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\SSCManager.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\SSCManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\SSCManager.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\SSCManager.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\SSCManager.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\SSCManager\bin\Debug\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\SSCManager\bin\Debug\net6.0\SSCManager.deps.json
+C:\Users\13110\source\repos\MiniGames\SSCManager\bin\Debug\net6.0\SSCManager.dll
+C:\Users\13110\source\repos\MiniGames\SSCManager\bin\Debug\net6.0\SSCManager.pdb
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\SSCManager.dll
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\refint\SSCManager.dll
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\SSCManager.pdb
+C:\Users\13110\source\repos\MiniGames\SSCManager\obj\Debug\net6.0\ref\SSCManager.dll

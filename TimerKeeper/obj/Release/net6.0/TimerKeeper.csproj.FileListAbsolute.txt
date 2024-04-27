@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\TimerKeeper.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\TimerKeeper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\TimerKeeper.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\TimerKeeper.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\TimerKeeper.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\bin\Release\net6.0\TimerKeeper.deps.json
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\bin\Release\net6.0\TimerKeeper.dll
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\bin\Release\net6.0\TimerKeeper.pdb
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\TimerKeeper.dll
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\refint\TimerKeeper.dll
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\TimerKeeper.pdb
+C:\Users\13110\source\repos\MiniGames\TimerKeeper\obj\Release\net6.0\ref\TimerKeeper.dll

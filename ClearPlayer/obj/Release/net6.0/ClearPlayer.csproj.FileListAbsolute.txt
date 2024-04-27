@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\ClearPlayer.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\ClearPlayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\ClearPlayer.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\ClearPlayer.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\ClearPlayer.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\bin\Release\net6.0\ClearPlayer.deps.json
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\bin\Release\net6.0\ClearPlayer.dll
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\bin\Release\net6.0\ClearPlayer.pdb
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\ClearPlayer.dll
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\refint\ClearPlayer.dll
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\ClearPlayer.pdb
+C:\Users\13110\source\repos\MiniGames\ClearPlayer\obj\Release\net6.0\ref\ClearPlayer.dll

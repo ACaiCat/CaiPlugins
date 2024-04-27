@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\Bed War.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\Bed War.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\Bed War.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\Bed War.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\Bed War.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\Bed War\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\Bed War\bin\Release\net6.0\Bed War.deps.json
+C:\Users\13110\source\repos\MiniGames\Bed War\bin\Release\net6.0\Bed War.dll
+C:\Users\13110\source\repos\MiniGames\Bed War\bin\Release\net6.0\Bed War.pdb
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\Bed War.dll
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\refint\Bed War.dll
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\Bed War.pdb
+C:\Users\13110\source\repos\MiniGames\Bed War\obj\Release\net6.0\ref\Bed War.dll

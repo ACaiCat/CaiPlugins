@@ -1,0 +1,11 @@
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\bin\Release\net6.0\TrProtocol.deps.json
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\bin\Release\net6.0\TrProtocol.dll
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\bin\Release\net6.0\TrProtocol.pdb
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\obj\Release\net6.0\TrProtocol.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\obj\Release\net6.0\TrProtocol.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\obj\Release\net6.0\TrProtocol.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\obj\Release\net6.0\TrProtocol.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\obj\Release\net6.0\TrProtocol.dll
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\obj\Release\net6.0\refint\TrProtocol.dll
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\obj\Release\net6.0\TrProtocol.pdb
+C:\Users\13110\source\repos\MiniGames\TrProtocol\TrProtocol\obj\Release\net6.0\ref\TrProtocol.dll

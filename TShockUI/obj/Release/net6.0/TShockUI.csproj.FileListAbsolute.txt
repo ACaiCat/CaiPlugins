@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\TShockUI.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\TShockUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\TShockUI.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\TShockUI.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\TShockUI.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\TShockUI\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\TShockUI\bin\Release\net6.0\TShockUI.deps.json
+C:\Users\13110\source\repos\MiniGames\TShockUI\bin\Release\net6.0\TShockUI.dll
+C:\Users\13110\source\repos\MiniGames\TShockUI\bin\Release\net6.0\TShockUI.pdb
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\TShockUI.dll
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\refint\TShockUI.dll
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\TShockUI.pdb
+C:\Users\13110\source\repos\MiniGames\TShockUI\obj\Release\net6.0\ref\TShockUI.dll

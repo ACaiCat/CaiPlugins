@@ -1,0 +1,13 @@
+C:\Users\13110\source\repos\MiniGames\BagPing\bin\Release\net6.0\HttpServer.dll
+C:\Users\13110\source\repos\MiniGames\BagPing\bin\Release\net6.0\BagPing.deps.json
+C:\Users\13110\source\repos\MiniGames\BagPing\bin\Release\net6.0\BagPing.dll
+C:\Users\13110\source\repos\MiniGames\BagPing\bin\Release\net6.0\BagPing.pdb
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\BagPing.csproj.AssemblyReference.cache
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\BagPing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\BagPing.AssemblyInfoInputs.cache
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\BagPing.AssemblyInfo.cs
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\BagPing.csproj.CoreCompileInputs.cache
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\BagPing.dll
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\refint\BagPing.dll
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\BagPing.pdb
+C:\Users\13110\source\repos\MiniGames\BagPing\obj\Release\net6.0\ref\BagPing.dll

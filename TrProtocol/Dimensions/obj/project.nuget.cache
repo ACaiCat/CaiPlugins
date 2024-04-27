@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "k44TPHCc/JAtoOQNWxO11U76NceLru9iSgOxFylqnh53fx5JkSGZBD/xol+CtaTujhD3pE/MDzITw690EbOi9Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\13110\\source\\repos\\MiniGames\\TrProtocol\\Dimensions\\Dimensions.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\13110\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
