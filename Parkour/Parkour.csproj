@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TShock" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CaiAPI\StatusTxtMgr\StatusTxtMgr.csproj" />
+    <ProjectReference Include="..\..\库存测试\XSB.csproj" />
+    <ProjectReference Include="..\SSCManager\SSCManager.csproj" />
+    <ProjectReference Include="..\TrProtocol\TrProtocol\TrProtocol.csproj" />
+  </ItemGroup>
+
+</Project>
